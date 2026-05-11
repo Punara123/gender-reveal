@@ -41,7 +41,7 @@ const Countdown = () => {
   return (
     <section className="py-24 bg-white/40 overflow-hidden">
       <div className="max-w-5xl mx-auto px-6 text-center">
-        <motion.span 
+        <motion.span
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           className="font-sans text-xs uppercase tracking-[0.4em] text-charcoal/30 mb-4 block"
@@ -49,7 +49,7 @@ const Countdown = () => {
           Counting the Heartbeats
         </motion.span>
         <h3 className="font-serif text-4xl text-charcoal mb-16 italic">Until we know the secret...</h3>
-        
+
         <div className="flex flex-wrap justify-center gap-8 md:gap-16">
           {timerItems.map((item, index) => (
             <motion.div
@@ -62,7 +62,7 @@ const Countdown = () => {
             >
               {/* Outer Glow/Ring */}
               <div className="absolute -inset-4 bg-white/40 rounded-full blur-xl group-hover:bg-white/60 transition-all duration-700" />
-              
+
               <div className={`relative w-24 h-24 md:w-32 md:h-32 flex flex-col items-center justify-center ${item.color} rounded-full shadow-premium border border-white/50 transition-transform duration-700 group-hover:scale-105`}>
                 <AnimatePresence mode="wait">
                   <motion.span

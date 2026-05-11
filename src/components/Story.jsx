@@ -61,7 +61,7 @@ const Story = () => {
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
+              transition={{ delay: 0.1 }}
               className="mt-12 pt-12 border-t border-charcoal/5"
             >
               <p className="font-script text-4xl text-charcoal">
