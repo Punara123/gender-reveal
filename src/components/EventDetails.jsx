@@ -104,7 +104,20 @@ const TiltCard = ({ item }) => {
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      whileInView={() => {
+        if (!hovered) {
+          const burst = Array.from({ length: 15 }, () => ({
+            id: nextId.current++,
+            x: 100 + Math.random() * 100,
+            y: 100 + Math.random() * 100,
+            color: Math.random() > 0.5 ? item.accent : item.accent2,
+          }));
+          setSparkles(prev => [...prev, ...burst]);
+        }
+      }}
+      viewport={{ once: true }}
       whileTap={{ scale: 0.96 }}
+
       animate={{
         rotateX: tilt.rx,
         rotateY: tilt.ry,
@@ -279,7 +292,21 @@ const EventDetails = () => {
           viewport={{ once: true, amount: 0.2 }}
         >
           {details.map((item, i) => (
-            <motion.div key={i} variants={cardVariants}>
+            <motion.div 
+              key={i} 
+              variants={cardVariants}
+              onViewportEnter={() => {
+                // We'll trigger a small sparkle burst when it comes into view
+                const burst = Array.from({ length: 12 }, () => ({
+                  id: Math.random(),
+                  x: 100 + Math.random() * 100, // approximate center
+                  y: 100 + Math.random() * 100,
+                  color: Math.random() > 0.5 ? item.accent : item.accent2,
+                }));
+                // Since this is in the parent, we might need a way to pass it to TiltCard
+                // Or we can just add the sparkles logic to TiltCard's whileInView
+              }}
+            >
               <TiltCard item={item} />
             </motion.div>
           ))}
