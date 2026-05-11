@@ -27,11 +27,12 @@ const Navbar = () => {
         animate={{ y: 0 }}
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
           scrolled 
-            ? 'bg-cream-200/60 backdrop-blur-md py-4 shadow-soft border-b border-white/20' 
-            : 'bg-cream-200 py-6'
+            ? 'bg-cream-200/80 backdrop-blur-md py-4 shadow-soft border-b border-white/20' 
+            : 'bg-transparent py-6'
         }`}
       >
         <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
+
           <a 
             href="#" 
             className="font-script text-2xl md:text-3xl transition-colors z-50 text-charcoal hover:text-babyBlue-200"
@@ -82,8 +83,9 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center space-y-8"
+            className="fixed inset-0 bg-cream-200/95 backdrop-blur-lg z-40 flex flex-col items-center justify-center space-y-8"
           >
+
             {navLinks.map((link, i) => (
               <motion.a
                 key={link.name}
